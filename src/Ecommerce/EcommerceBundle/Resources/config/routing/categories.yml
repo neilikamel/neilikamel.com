@@ -1,0 +1,30 @@
+admin_categories:
+    pattern:  /
+    defaults: { _controller: "EcommerceEcommerceBundle:CategoriesAdmin:index" }
+
+admin_categories_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "EcommerceEcommerceBundle:CategoriesAdmin:show" }
+
+admin_categories_new:
+    pattern:  /new
+    defaults: { _controller: "EcommerceEcommerceBundle:CategoriesAdmin:new" }
+
+admin_categories_create:
+    pattern:  /create
+    defaults: { _controller: "EcommerceEcommerceBundle:CategoriesAdmin:create" }
+    requirements: { _method: post }
+
+admin_categories_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "EcommerceEcommerceBundle:CategoriesAdmin:edit" }
+
+admin_categories_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "EcommerceEcommerceBundle:CategoriesAdmin:update" }
+    requirements: { _method: post|put }
+
+admin_categories_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "EcommerceEcommerceBundle:CategoriesAdmin:delete" }
+    requirements: { _method: post|delete }

@@ -1,0 +1,40 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+<div class="container">
+<div class="row">
+
+<div class="span9">
+<h2>Valider mon panier</h2>
+<table class="table table-striped table-hover">
+<thead>
+<tr>
+<th>Références</th>
+<th>Quantité</th>
+<th>Prix unitaire</th>
+<th>Total HT</th>
+</tr>
+</thead>
+<tbody>
+{% for produit in commande.commande.produit %}
+<tr>
+<td>
+{{ produit.qte }}
+</td>
+<td>{{ produit.prix }} €</td>
+<td>{{ produit.prix * produit.qte }} €</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+            
+            <div class="span3 pull-left">
+                <dl class="pull-left">
+                    <dt><h4>Adresse de facturation</h4></dt>
+                    <dt>{{ commande.commande.facturation.prenom }} {{ commande.commande.facturation.nom }}</dt>
+                    <dt>{{ commande.commande.facturation.adresse }}</dt>
+                    <dt>{{ commande.commande.facturation.cp }} {{ commande.commande.facturation.ville }} - {{ commande.commande.facturation.pays }}</dt>
+                </dl>
+            </div>
+
+{% endblock %}

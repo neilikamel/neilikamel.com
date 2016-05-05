@@ -1,0 +1,35 @@
+ecommerce_ecommerce_homepage:
+    pattern:  /
+    defaults: { _controller: EcommerceEcommerceBundle:Produits:index }
+livraison:
+    pattern:  /livraison
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:livraison }
+
+ecommerce_ecommerce_ajouter:
+    pattern:  /ajouter
+    defaults: { _controller: EcommerceEcommerceBundle:Produits:ajouter}
+EcommerceEcommerceBundle__admin_produits:
+    resource: "@EcommerceEcommerceBundle/Resources/config/routing/produits.yml"
+    prefix:   /admin/produits/
+EcommerceEcommerceBundle__admin_categories:
+    resource: "@EcommerceEcommerceBundle/Resources/config/routing/categories.yml"
+    prefix:   /admin/categories/
+ecommerce_ecommerce_presentation:
+    pattern:  /presentation/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Produits:presentation}
+panier:
+    pattern:  /monpanier
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:panier }
+validation:
+    pattern:  /validation
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:validation }
+
+ecommerce_ecommerce_ajout_panier:
+    pattern:  /{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:ajouter }
+ecommerce_ecommerce_supprimer_panier:
+    pattern:  /supprimer/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:supprimer }
+supp_livraison_adresse:
+    pattern:  /livraison/adresse/supprimer/{id}
+    defaults: { _controller: EcommerceEcommerceBundle:Panier:supprimerAdresse }

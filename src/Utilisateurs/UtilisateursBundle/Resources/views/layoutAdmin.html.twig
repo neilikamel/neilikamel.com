@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block titre %}Ecommerce {% endblock %}</title>
+        <meta name="keywords" content="{% block motsCles %}{% endblock %}" />
+        <meta name="description" content="{% block description %}{% endblock %}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="index.php">Administration</a>
+                </div>
+            </div>
+        </div>
+            
+        <div class="container">
+            <div class="row">
+                {% include 'navigationAdmin.html.twig' %}
+                <div class="span9">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
+        </div>
+
+        <hr />
+	<footer id="footer" class="vspace20">
+            <div class="container">
+            <div class="row">
+                
+            </div>
+	</footer>	
+
+        {% block javascripts %}
+
+{% endblock %}
+    </body>
+</html>

@@ -1,0 +1,62 @@
+{% extends "::base.html.twig"%}
+{% block body%}
+       <!-- Page Content -->
+    <div class="container">
+   {% set total=0 %}
+       <h2>Votre parnier</h2>
+                    <form>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Références</th>
+                                <th>Quantité</th>
+
+                                <th>Action</th>
+
+                                <th>Prix unitaire</th>
+                                <th>Total HT</th>
+                            </tr>
+                            
+
+                        </thead>
+                        <tbody>                    
+                            {% for p in produits%}
+
+                            <tr>
+                                <th>{{p.nom}}</th>
+                                <th>{{panier[p.id]}}</th>
+
+                                <th><a href="{{path('ecommerce_ecommerce_supprimer_panier',{'id':p.id})}}">supprimer</a></th>
+
+                                <th>{{p.prix}}</th>
+                                <th>{{(p.prix)*(panier[p.id])}}</th>
+			    
+                                </tr>
+                                {% set t=(p.prix)*(panier[p.id])%}
+                                    {%set total=(total+t)%}
+
+                                {%endfor%}
+
+                        </tbody>
+                    </table>
+                </form>
+                <dl class="dl-horizontal pull-right">
+
+                    <dt>Total:{{total}}</dt>
+                    <dd></dd>
+                    
+                    
+    
+                 
+                </dl>
+                <div class="clearfix"></div>
+                <a href="livraison.php" class="btn btn-success pull-right">Valider mon panier</a>
+                <a href="{{path('ecommerce_ecommerce_homepage')}}" class="btn btn-primary">Continuer mes achats</a>
+            </div>
+		
+        <!-- /.row -->
+
+        <hr>
+
+
+{%endblock%}
